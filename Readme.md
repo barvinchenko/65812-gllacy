@@ -1,7 +1,7 @@
 # Личный проект «Глейси»
 
 * Студент: [Sulkhan Inaishvili](https://up.htmlacademy.ru/htmlcss/13/user/65812).
-* Наставник: `Неизвестно`.
+* Наставник: [Гоша Егорян](https://htmlacademy.ru/profile/id85633).
 
 ---
 
