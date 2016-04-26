@@ -1,4 +1,53 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 body {
-  font: bold 14px/normal "Roboto", sans-serif;
+  width: 900px;
+  margin: 0 auto;
+
+  font-size: 14px;
+  line-height: normal;
   color: #000000;
+  font-weight: bold;
+  font-family: "Roboto" , Helvetica, Arial, sans-serif;
+}
+
+
+/* experimental css */
+
+.header {
+  display: inline-block;
+  vertical-align: middle;
+}
+.menu--item,
+.user div {
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.toggle,
+.item--drop,
+div .search--form,
+div .login--form {
+  display: none; /* hidden elements */
+}
+
+.logo {
+  background-color: red;
+  box-sizing: border-box;
+}
+.nav {
+  background-color: green;
+}
+.user {
+  background-color: blue;
+}
+.contacts {
+  background-color: grey;
+}
+header {
+  background-color: black;
+  padding: 10px;
 }
