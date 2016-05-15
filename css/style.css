@@ -354,8 +354,50 @@ header .layout--user {
   line-height: 16px;
 }
 
+.btn {
+  position: absolute;
+  bottom: 20px;
+  right: 26px;
+  display: block;
+  width: 210px;
+  height: 35px;
+  background-color: #e64b36;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 32px;
+  text-decoration: none;
+  color: #ffffff;
+  background: linear-gradient(0deg,#e74a35,#f26843);
+  box-shadow: 0 2px 2px 0 rgba(172,16,0,.64);
+}
+
+.basket--popup .table--popup {
+  display: table;
+}
+
+.basket--popup .row--popup {
+  display: table-row;
+}
+
+.basket--popup .cell--popup {
+  display: table-cell;
+}
+
 .delete--btn {
   text-indent: -9999px;
+}
+
+.basket--popup img {
+  padding: 5px;
+}
+
+.icecream--title {
+  width 280px;
+}
+
+.cell--popup {
+  padding: 0 2px;
 }
 
 .user--item:hover .basket--popup {
@@ -780,6 +822,8 @@ main .feature--subscript .post--band {
   color: #fefefe;
   box-shadow: 0 2px 2px 0 rgba(172,16,0,.64);
   background: linear-gradient(0deg,#e74a35,#f26843);
+  outline: none;
+  cursor: pointer;
 }
 
 .post--band button:hover {
@@ -845,13 +889,13 @@ main .main--feature::after {
   color: #343434;
 }
 
-.btn {
+.btn--form {
   position: absolute;
-  bottom: 29px;
+  bottom: 30px;
   right: 26px;
   display: block;
-  width: 250px;
-  height: 46px;
+  width: 249px;
+  height: 45px;
   background-color: #e64b36;
   border-radius: 50px;
   text-align: center;
@@ -861,6 +905,12 @@ main .main--feature::after {
   color: #ffffff;
   background: linear-gradient(0deg,#e74a35,#f26843);
   box-shadow: 0 2px 2px 0 rgba(172,16,0,.64);
+}
+
+.basket--total {
+  border-top: 1px solid #353535;
+  text-align: right;
+  padding: 5px;
 }
 
 .btn:hover {
@@ -933,12 +983,18 @@ main h1 {
   background-color: transparent;
   border: none;
   color: white;
-  -webkit-appearance: none;
   width: 100%;
   height: 36px;
   outline: none;
   margin: 0px 15px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  cursor: pointer;
 }
+
 
 .filter .field--sorting label {
   position: absolute;
@@ -982,6 +1038,7 @@ main h1 {
   border-radius: 50%;
   background-color: #fff;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);
+  cursor: pointer;
 }
 
 .filter .range--scale--max {
@@ -993,6 +1050,7 @@ main h1 {
   border-radius: 50%;
   background-color: #fff;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);
+  cursor: pointer;
 }
 
 
@@ -1033,6 +1091,7 @@ main h1 {
   padding-left: 30px;
   margin-right: 15px;
   position: relative;
+  cursor: pointer;
 }
 
 .fat--control input[type="radio"] + label::before {
@@ -1091,6 +1150,7 @@ main h1 {
   padding-left: 30px;
   margin-right: 18px;
   position: relative;
+  cursor: pointer;
 }
 
 .fillings input[type="checkbox"] + label::before {
@@ -1129,6 +1189,7 @@ main h1 {
   background-color: #a6b7ae;
   outline: none;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .filter button:hover {
@@ -1359,18 +1420,15 @@ figcaption {
   margin: 32px 0 0 211px;
 }
 
-.footer--docs .table,
-.basket--popup .table {
+.footer--docs .table {
   display: table;
 }
 
-.footer--docs .row,
-.basket--popup row {
+.footer--docs .row {
   display: table-row;
 }
 
-.footer--docs .cell,
-.basket--popup .cell{
+.footer--docs .cell {
   display: table-cell;
   padding: 0 15px 4px;
 }
