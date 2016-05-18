@@ -10,13 +10,43 @@ body {
 /* MAIN LAYOUT
    ===================================== */
 
+@font-face {
+    font-family: "Roboto";
+    src: local("Roboto Medium"), local("Roboto-Medium"),
+         url("robotomedium.woff2") format("woff2"),
+         url("robotomedium.woff") format("woff"),
+         url("robotomedium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: local("Roboto"), local("Roboto-Regular"),
+         url("roboto.woff2") format("woff2"),
+         url("roboto.woff") format("woff"),
+         url("roboto.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: local("Roboto Black"), local("Roboto-Black"),
+         url("robotoblack.woff2") format("woff2"),
+         url("robotoblack.woff") format("woff"),
+         url("robotoblack.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+}
+
 body > input[type="radio"] {
   display: none;
 }
 
 .page {
   padding-top: 10px;
-  transition: background-image 0.5s ease, background-color 0.5s ease;
+/*  transition: background-image 0.5s ease, background-color 0.5s ease;*/
 }
 
 .page--layout {
@@ -32,6 +62,10 @@ body > input[type="radio"] {
 /* HEADER
    ===================================== */
 
+header {
+  position: relative;
+}
+
 header .layout--logo {
   float: left;
   width: 153px;
@@ -44,6 +78,8 @@ header .layout--logo {
 }
 
 header .layout--nav {
+  position: relative;
+  z-index: 1;
   float: left;
   width: 700px;
   min-height: 67px;
@@ -105,14 +141,15 @@ header .layout--nav {
   display: block;
 }
 
-.item--drop--title b {
+.item--drop--title a {
   display: block;
   padding: 8px 0px 11px 14px;
   margin: 0 10px 0 5px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   color: #323232;
   border-bottom: 1px solid #d1d0ce;
+  text-decoration: none;
 }
 
 .drop--link a {
@@ -143,6 +180,8 @@ header .layout--nav {
 }
 
 header .layout--user {
+  position: relative;
+  z-index: 1;
   float: right;
   width: auto;
   min-height: 67px;
@@ -326,6 +365,17 @@ header .layout--user {
   background-position: 10px -18px;
 }
 
+.basket--catalog:hover .basket--full::after {
+  content: "";
+  background: url(../img/icons/basket-fill.png);
+  background-repeat: no-repeat;
+  width: 13px;
+  height: 15px;
+  position: absolute;
+  left: 20px;
+  top: 10px;
+}
+
 .item--basket:hover {
   background-image: url(../img/spritesheet.png);
   background-repeat: no-repeat;
@@ -341,10 +391,8 @@ header .layout--user {
   top: 36px;
   right: 0;
   width: 540px;
-  min-height: 239px;
-  padding: 15px;
-  padding-top: 30px;
-  padding-bottom: 20px;
+  min-height: 242px;
+  padding: 16px;
   border-radius: 5px;
   background-color: #f8f7f4;
   color: #323232;
@@ -352,20 +400,21 @@ header .layout--user {
   box-sizing: border-box;
   font-size: 13px;
   line-height: 16px;
+  font-weight: 300;
 }
 
 .btn {
   position: absolute;
   bottom: 20px;
-  right: 26px;
+  right: 15px;
   display: block;
-  width: 210px;
-  height: 35px;
+  width: 170px;
+  height: 45px;
   background-color: #e64b36;
   border-radius: 50px;
   text-align: center;
   font-size: 18px;
-  line-height: 32px;
+  line-height: 42px;
   text-decoration: none;
   color: #ffffff;
   background: linear-gradient(0deg,#e74a35,#f26843);
@@ -378,10 +427,19 @@ header .layout--user {
 
 .basket--popup .row--popup {
   display: table-row;
+  width: auto;
+  padding: 0;
 }
 
 .basket--popup .cell--popup {
   display: table-cell;
+  width: auto;
+  padding: 0 5px 10px 2px;
+  vertical-align: middle;
+}
+
+.basket--popup .icecream--price {
+  padding-left: 10px;
 }
 
 .delete--btn {
@@ -392,12 +450,8 @@ header .layout--user {
   padding: 5px;
 }
 
-.icecream--title {
-  width 280px;
-}
-
-.cell--popup {
-  padding: 0 2px;
+.basket--popup .cell--width {
+  width: 250px;
 }
 
 .user--item:hover .basket--popup {
@@ -457,16 +511,24 @@ main .slider {
   display: none;
 }
 
+.slide img {
+  position: absolute;
+  top: -117px;
+  left: 50px;
+}
+
 .slider .slider--title {
-  width: 700px;
+  position: relative;
+  width: 720px;
   margin: 0 auto;
   margin-bottom: 30px;
-  font-weight: 800;
+  font-family: "Roboto-Black";
   font-size: 60px;
-  line-height: 60px;
+  line-height: 60.35px;
 }
 
 .slider .btn--slider {
+  position: relative;
   display: inline-block;
   padding: 12px 44px;
   font-weight: 600;
@@ -514,23 +576,23 @@ main .slider {
 
 #btn--1:checked ~ .page {
   background-color: #849d8f;
-  background-image: url(../img/content/Мороженко1.png);
+/*  background-image: url(../img/content/Мороженко1.png);*/
   background-repeat: no-repeat;
-  background-position: 120px 0;
+  background-position: top center;
 }
 
 #btn--2:checked ~ .page {
   background-color: #8996a6;
-  background-image: url(../img/content/Мороженко2.png);
+/*  background-image: url(../img/content/Мороженко2.png);*/
   background-repeat: no-repeat;
-  background-position: 120px 0;
+  background-position: top center;
 }
 
 #btn--3:checked ~ .page {
   background-color: #9d8b84;
-  background-image: url(../img/content/Мороженко3.png);
+/*  background-image: url(../img/content/Мороженко3.png);*/
   background-repeat: no-repeat;
-  background-position: 120px 0;
+  background-position: top center;
 }
 
 #btn--1:checked ~ .page #intro1,
@@ -543,6 +605,10 @@ main .slider {
 #btn--2:checked ~ .page label[for="btn--2"],
 #btn--3:checked ~ .page label[for="btn--3"] {
   background-color: #ffffff;
+}
+
+.main--promo {
+  margin-bottom: 8px;
 }
 
 main .promo--left {
@@ -580,9 +646,11 @@ main .main--promo::after {
 
 .promo--left p,
 .promo--right p {
+  width: 526px;
   margin: 16px 0 0 19px;
   font-size: 18px;
   line-height: 22px;
+  box-sizing: border-box;
 }
 
 .promo--left .promo--btn--left {
@@ -645,7 +713,7 @@ main .main--catalog {
 main .catalog--item {
   float: left;
   position: relative;
-  margin: 40px 26px 0 0;
+  margin: 32px 26px 0 0;
   text-align: center;
 }
 
@@ -673,13 +741,20 @@ main .catalog--item {
   top: 4px;
 }
 
-.catalog--item figcaption p {
-  margin: 8px 0;
+.width--control {
+  width: 255px;
+  margin: 8px auto;
   line-height: 22px;
   font-weight: 400;
 }
 
+.width--control--end {
+  width: 225px;
+  margin: 8px auto;
+}
+
 .catalog--item figcaption span {
+/*  font-family: "Roboto-Medium";*/
   border-bottom: 1px solid hsla(0,0%,100%,.4);
 }
 
@@ -714,6 +789,12 @@ main .main--feature--about {
   padding-left: 53px;
 }
 
+.feature--item p {
+  font-family: "Roboto-Regular";
+  font-size: 16px;
+  line-height: 22px;
+}
+
 .feature--item:nth-child(2) {
   margin-right: 32px;
 }
@@ -727,10 +808,12 @@ main .main--feature--about {
 }
 
 .main--feature--about h2 {
+  font-family: "Roboto-Medium";
   margin: 3px 0;
-  line-height: 31px;
-  word-spacing: 1px;
-  letter-spacing: -0.1px;
+  line-height: 30px;
+  font-size: 24px;
+/*  word-spacing: 1px;*/
+/*  letter-spacing: -0.1px;*/
 }
 
 
@@ -765,6 +848,8 @@ main .feature--blog h3 {
 }
 
 main .feature--blog a {
+  display: block;
+  width: 300px;
   color: #323232;
 }
 
@@ -875,7 +960,7 @@ main .main--feature::after {
   margin-top: 17px;
   font-size: 14px;
   font-weight: 400;
-  line-height: 21px;
+  line-height: 20px;
   color: #343434;
 }
 
@@ -885,7 +970,7 @@ main .main--feature::after {
   margin-top: 1px;
   font-size: 18px;
   font-weight: 700;
-  line-height: 24px;
+  line-height: 25px;
   color: #343434;
 }
 
@@ -907,10 +992,21 @@ main .main--feature::after {
   box-shadow: 0 2px 2px 0 rgba(172,16,0,.64);
 }
 
+.btn--form:active {
+  background-image: linear-gradient(0deg,#e1613e,#d74632);
+  box-shadow: inset 0 2px 2px 0 #942718;
+}
+
+.btn--form:hover {
+  background: #ee7561;
+}
+  
 .basket--total {
-  border-top: 1px solid #353535;
+  border-top: 1px solid #cacac7;
   text-align: right;
-  padding: 5px;
+  padding: 10px 0 0 0;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .btn:hover {
@@ -979,6 +1075,10 @@ main h1 {
   border-radius: 50px;
 }
 
+.select--hidden {
+  overflow: hidden;
+}
+
 .filter .field--sorting select {
   background-color: transparent;
   border: none;
@@ -987,12 +1087,14 @@ main h1 {
   height: 36px;
   outline: none;
   margin: 0px 15px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   text-indent: 0.01px;
-  text-overflow: '';
+  text-overflow: "";
   cursor: pointer;
+}
+
+.field--sorting option {
+  background-color: white;
+  color: black;
 }
 
 
@@ -1065,13 +1167,13 @@ main h1 {
 .filter .field--fat {
   position: relative;
   float: left;
-  width: 416px;
+  width: 418px;
   height: 37px;
   background-color: #a9b9af;
   border-radius: 50px;
 }
 
-.filter .field--fat label[for="fat"] {
+.filter .field--fat > label {
   position: absolute;
   bottom: 42px;
   left: 15px;
@@ -1080,6 +1182,8 @@ main h1 {
 }
 
 .fat--control {
+  width: 416px;
+  box-sizing: border-box;
   padding: 7px 0 0 15px;
 }
 
@@ -1105,7 +1209,7 @@ main h1 {
   position: absolute;
   top: 2px;
   left: 0;
-  
+
 }
 
 .fat--control input[type="radio"]:checked + label::after {
@@ -1130,7 +1234,7 @@ main h1 {
   border-radius: 50px;
 }
 
-.filter .field--fillings label[for="fill"] {
+.filter .field--fillings > label {
   position: absolute;
   bottom: 42px;
   left: 15px;
@@ -1139,7 +1243,9 @@ main h1 {
 }
 
 .fillings {
-  padding: 7px 0 0 17px;
+  width: 703px;
+  box-sizing: border-box;
+  padding: 7px 0 0 16px;
 }
 
 .fillings input {
@@ -1147,7 +1253,7 @@ main h1 {
 }
 
 .fillings input[type="checkbox"] + label {
-  padding-left: 30px;
+  padding-left: 29px;
   margin-right: 18px;
   position: relative;
   cursor: pointer;
@@ -1164,7 +1270,7 @@ main h1 {
   position: absolute;
   top: 2px;
   left: 0;
-  
+
 }
 
 .fillings input[type="checkbox"]:checked + label::after {
@@ -1218,6 +1324,7 @@ main h1 {
 .catalog {
   position: relative;
 }
+
 
 .catalog--item img,
 .catalog--item span {
@@ -1310,8 +1417,8 @@ figcaption {
 
 .paginator {
   float: right;
-  margin-top: 56px;
-  margin-bottom: 40px;
+  margin-top: 72px;
+  margin-bottom: 30px;
 }
 
 .paginator a {
@@ -1329,12 +1436,10 @@ figcaption {
   background-color: hsla(0,0%,100%,.2);
 }
 
-.paginator a:nth-child(2) {
+.paginator .page--active {
   background-color: #ffffff;
   color: #000000;
 }
-
-
 
 .paginator .page-number {
   width: 25px;
@@ -1493,7 +1598,6 @@ figcaption {
   width: 1146px;
 }
 
-
 .feedback {
   color: #323232;
 }
@@ -1511,7 +1615,7 @@ figcaption {
 }
 
 .feedback--wrap h4 {
-  margin: 10px 0;
+  margin: 10px 0 20px 0;
   font-size: 24px;
   font-weight: 500;
   line-height: 24px;
@@ -1578,6 +1682,46 @@ figcaption {
   outline: none;
   color: #999999;
   box-sizing: border-box;
+}
+
+.btn--close {
+  text-indent: -9999px;
+  position: absolute;
+  background: url(../img/icons/x-modal.png);
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  top: 10px;
+  right: 10px;
+}
+
+.btn--feedback {
+  position: absolute;
+  bottom: 30px;
+  right: 26px;
+  display: block;
+  width: 160px;
+  height: 45px;
+  background-color: #e64b36;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 42px;
+  text-decoration: none;
+  color: #ffffff;
+  background: linear-gradient(0deg,#e74a35,#f26843);
+  box-shadow: 0 2px 2px 0 rgba(172,16,0,.64);
+  border: none;
+  outline: none;
+}
+
+.btn--feedback:active {
+  background-image: linear-gradient(0deg,#e1613e,#d74632);
+  box-shadow: inset 0 2px 2px 0 #942718;
+}
+
+.btn--feedback:hover {
+  background: #ee7561;
 }
 
 /*.sprite {
