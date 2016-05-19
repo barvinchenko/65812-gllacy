@@ -753,23 +753,38 @@ main .catalog--item {
   margin: 8px auto;
 }
 
-.catalog--item figcaption span {
+figcaption span {
 /*  font-family: "Roboto-Medium";*/
   border-bottom: 1px solid hsla(0,0%,100%,.4);
 }
 
+/*
 .catalog--item .hit--label {
   position: absolute;
   top: 0px;
   left: 0px;
   border-radius: 50%;
 }
+*/
+
+.main--catalog figure::before {
+  content: "";
+  position: absolute;
+  z-index: 6;
+  top: 0;
+  left: 0;
+  background: url(../img/layout/hit.jpg);
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  width: 61px;
+  height: 61px;
+}
 
 main .main--feature--about {
   height: 265px;
   padding: 20px;
   margin-bottom: 41px;
-  /*background-image: url(../img/layout/wafer.jpg);*/
+  background-image: url(../img/layout/wafer.jpg);
   background-color: #ebddc3;
   background-repeat: no-repeat;
   border-radius: 15px;
@@ -836,18 +851,18 @@ main .feature--blog {
   color: black;
 }
 
-main .feature--blog p {
+.feature--blog p {
   margin: 2px 0;
 }
 
-main .feature--blog h3 {
+.feature--blog h3 {
   margin: 5px 0;
   font-size: 24px;
   letter-spacing: 0.3px;
   line-height: 31px;
 }
 
-main .feature--blog a {
+.feature--blog a {
   display: block;
   width: 300px;
   color: #323232;
@@ -863,7 +878,7 @@ main .feature--subscript {
   border-radius: 15px;
 }
 
-main .feature--subscript .post--band {
+.feature--subscript .post--band {
   position: relative;
   height: 210px;
   box-sizing: border-box;
@@ -1282,7 +1297,9 @@ main h1 {
   height: 10px;
   border-right: 2px solid #f8f7f4;
   border-bottom: 2px solid #f8f7f4;
-  transform: rotate(35deg);
+  -webkit-transform: rotate(35deg);
+     -moz-transform: rotate(35deg);
+          transform: rotate(35deg);
 }
 
 .filter button {
@@ -1582,7 +1599,7 @@ figcaption {
 
 .footer--webmaster a {
   color: #ffffff;
-  border-bottom: 1px solid hsla(0,0%,100%,.4);;
+  border-bottom: 1px solid hsla(0,0%,100%,.4);
   text-decoration: none;
 }
 
@@ -1598,12 +1615,7 @@ figcaption {
   width: 1146px;
 }
 
-.feedback {
-  color: #323232;
-}
-
-.feedback {
-  content: "";
+.modal-window {
   position: fixed;
   z-index: 6;
   top: 0;
@@ -1612,7 +1624,32 @@ figcaption {
   width: 100%;
   height: 100%;
   background-color: rgba(0,0,0,.3);
+  color: #323232;
 }
+
+.modal-window-show {
+  display: block;
+}
+
+/*
+#modal {
+  position: fixed;
+  z-index: 6;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.3);
+  pointer-events: none;
+  color: #323232;
+}
+
+#modal:target {
+  pointer-events: auto;
+  display: block;
+}
+*/
 
 .feedback--wrap h4 {
   margin: 10px 0 20px 0;
@@ -1723,6 +1760,7 @@ figcaption {
 .btn--feedback:hover {
   background: #ee7561;
 }
+
 
 /*.sprite {
     background-image: url(../img/spritesheet.png);
